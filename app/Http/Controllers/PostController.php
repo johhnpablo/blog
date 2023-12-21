@@ -9,6 +9,8 @@ class PostController extends Controller
 {
     public function show(Post $post)
     {
-        return view('post', ['post' => $post, 'title' => $post->slug]);
+        $postSlug = strtoupper($post->slug);
+
+        return view('post', ['post' => $post, 'title' => $postSlug]);
     }
 }
