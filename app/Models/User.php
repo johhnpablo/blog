@@ -44,12 +44,17 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function comments() :HasMany
+    public function getFullNameAttribute()
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
+    public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function posts() : HasMany
+    public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
     }

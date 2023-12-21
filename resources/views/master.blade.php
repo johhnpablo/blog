@@ -11,6 +11,8 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{URL::asset('css/global.css')}}" rel="stylesheet" />
     <link href="{{URL::asset('css/styles.css')}}" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
 </head>
 <body>
 <!-- Responsive navbar-->
@@ -31,6 +33,7 @@
 </footer>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <!-- Core theme JS-->
 <script src="{{URL::asset('js/script.js')}}"></script>
 </body>

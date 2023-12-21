@@ -8,7 +8,7 @@
                     <li class="nav-item"><a class="nav-link " href="{{route('home')}}">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Sobre</a></li>
                     <li class="nav-item"><a class="nav-link " href="#!">Contato</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('login')}}">Login</a></li>
                 </ul>
             </div>
         </div>

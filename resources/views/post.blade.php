@@ -1,22 +1,35 @@
 @extends('master')
 
 @section('headerIntro')
-
+<h2>Login</h2
 @endsection
 
 @section('main')
 
-    <div class=" col-lg-6 text-center" style="margin: 0 auto" >
-        <h2>{{ $post->title }}</h2>
-        <a href="#!">
-            <img class="card-img-top" src="{{$post->thumb}}" alt="..."/>
-        </a>
-        <div class="card-body mb-5">
-            <div class="small text-muted">{{$post->created_at}}</div>
 
-            <p class="card-text">{{$post->content}}</p>
+    <!------ Include the above in your HEAD tag ---------->
 
-            <hr>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+            </div>
+
+            <!-- Login Form -->
+            <form>
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="#">Forgot Password?</a>
+            </div>
+
         </div>
     </div>
 

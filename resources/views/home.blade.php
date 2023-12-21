@@ -18,6 +18,8 @@
                     <div class="small text-muted">{{$post->created_at}}</div>
                     <h2 class="card-title">{{$post->title}}</h2>
                     <p class="card-text">{{Str::limit($post->content, 100, '...')}}</p>
+                    <p>Author: <strong>{{$post->user->FullName}}</strong></p>
+                    <p>💬 Comentários - <b>{{$post->comments->count()}}</b> </p>
                     <a class="btn btn-primary" href="{{route('post', $post->slug)}}">Ler mais →</a>
                     <hr>
 
