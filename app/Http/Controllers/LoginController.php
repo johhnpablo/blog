@@ -16,13 +16,21 @@ class LoginController extends Controller
     {
         $validated = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|',
-
+            'password' => 'required',
         ]);
-        $logged = Auth::attempt($validated);
-        if ($logged) {
-            return redirect()->intended('/');
-        }
-        return back()->with('error_login', 'Ocorreu um erro ao tentar fazer login, tente novamente mais tarde. ');
+
+      $logged =  Auth::attempt($validated);
+
+      if($logged) {
+          return redirect()->intended('/');
+      }
+      return back()->with('error_login', 'Ocorreu um erro, tente novamente em alguns segundos! ');
+    }
+
+    public function destroy()
+    {
+        Auth::logout();
+
+        return redirect('/');
     }
 }
