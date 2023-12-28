@@ -16,7 +16,7 @@
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 {{ $errors->first('email') }}
-                <input type="text" name="email" placeholder="Email" value="jewel37@example.com">
+                <input type="text" name="email" placeholder="Email" value="hand.candida@example.net">
                 {{ $errors->first('password') }}
                 <input type="text" name="password" placeholder="Senha">
                 <button type="submit">Entrar</button>

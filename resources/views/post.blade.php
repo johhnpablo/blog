@@ -1,37 +1,40 @@
 @extends('master')
 
 @section('headerIntro')
-<h2>Login</h2
+    <div class="text-center my-5">
+        <h1 class="fw-bolder mb-5">{{$post->title}}</h1>
+        <p class="lead mb-0 text-black-50">Author: <strong>{{$post->user->FullName}}</strong></p>
+
+
+    </div>
 @endsection
 
 @section('main')
-
-
-    <!------ Include the above in your HEAD tag ---------->
-
-    <div class="wrapper fadeInDown">
-        <div id="formContent">
-            <!-- Tabs Titles -->
-
-            <!-- Icon -->
-            <div class="fadeIn first">
-                <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-            </div>
-
-            <!-- Login Form -->
-            <form>
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-                <input type="submit" class="fadeIn fourth" value="Log In">
-            </form>
-
-            <!-- Remind Passowrd -->
-            <div id="formFooter">
-                <a class="underlineHover" href="#">Forgot Password?</a>
-            </div>
-
-        </div>
+    <img class="card-img-top rounded" src="{{$post->thumb}}" alt="..."/>
+    <div class="card-body mb-5">
+        <div class="small text-muted">{{$post->created_at}}</div>
+        <h2 class="card-title">{{$post->title}}</h2>
+        <p class="card-text">{{$post->content}}</p>
+        <p>Author: <strong>{{$post->user->FullName}}</strong></p>
+        <hr>
     </div>
+    <hr>
 
+
+
+    <ul class="border border-1 p-2 rounded">
+        <h3>💬 Comentários </h3>
+        <form name="" method="post">
+            @csrf
+            <textarea name="comment"  cols="145" rows="5" class="rounded"></textarea><br>
+            <button type="submit" class="btn-primary rounded">Comentar</button>
+        </form>
+        @forelse ($post->comments as $comment)
+            <li class="list-unstyled mt-3">➡️ {{ $comment->comment }}</li>
+            <hr>
+        @empty
+            <li>Nenhum comentário.</li>
+        @endforelse
+    </ul>
 @endsection
 
