@@ -18,19 +18,31 @@
         <p>Author: <strong>{{$post->user->FullName}}</strong></p>
         <hr>
     </div>
-    <hr>
+
 
 
 
     <ul class="border border-1 p-2 rounded">
         <h3>💬 Comentários </h3>
-        <form name="" method="post">
-            @csrf
-            <textarea name="comment"  cols="145" rows="5" class="rounded"></textarea><br>
-            <button type="submit" class="btn-primary rounded">Comentar</button>
-        </form>
+        @if(auth()->check())
+            @if (session()->has('error_create_comment'))
+                <span>{{ session()->get('error_create_comment') }}</span>
+            @endif
+            {{$errors->first('comment')}}
+            <form action="{{ route('comment', $post->id) }}" method="post">
+                @csrf
+
+                <textarea name="comment" cols="145" rows="5" class="rounded"></textarea><br>
+                <button type="submit" class="btn-primary rounded">Comentar</button>
+            </form>
+        @endif
+
         @forelse ($post->comments as $comment)
-            <li class="list-unstyled mt-3">➡️ {{ $comment->comment }}</li>
+            <li class="list-unstyled mt-3">➡️ {{ $comment->comment }} <br> <b>🧑🏽‍🔬{{ $comment->user->fullName }}</b>
+                @if(auth()->check() && auth()->user()->id === $comment->user->id)
+                    | <a href="{{route('comment.destroy', $comment->id)}}">Deletar</a>
+                @endif
+            </li>
             <hr>
         @empty
             <li>Nenhum comentário.</li>
