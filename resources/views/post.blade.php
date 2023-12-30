@@ -45,7 +45,7 @@
             </li>
             <hr>
         @empty
-            <li>Nenhum comentário.</li>
+            <li class="list-unstyled mt-3">Nenhum comentário.</li>
         @endforelse
     </ul>
 @endsection

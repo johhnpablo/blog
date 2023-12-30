@@ -3,40 +3,26 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class MailCommentPost extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     */
+
     public function __construct(public $user, public $post)
     {
-        //
+
     }
 
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
+    public function build(): MailCommentPost
     {
-        return new Envelope(
-            subject: 'Comment Post',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): MailCommentPost
-    {
-       return $this->from('johnpablo.dev@gmail.com')->subject('Fizeram um comentário no seu post.')->markdown('emails.comment');
+        return $this->from('johnpablo.dev@gmail.com')
+            ->subject('Fizeram um comentário no seu post.')
+            ->markdown('emails.comment', [
+                'url' => 'http://localhost/post/' . $this->post->slug
+            ]);
     }
 
     /**

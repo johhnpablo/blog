@@ -15,9 +15,6 @@ class CommentController extends Controller
             'comment' => 'required'
         ]);
 
-        event(new CommentPost(auth()->user(), $post));
-        dd('fim');
-
         $created = Comment::create([
             'comment' => $validated['comment'],
             'user_id' => auth()->user()->id,
@@ -25,6 +22,7 @@ class CommentController extends Controller
         ]);
 
         if ($created) {
+            event(new CommentPost(auth()->user(), $post));
             return back();
         }
         return back()->with('error_create_comment', 'Ocoreu um erro ao cadastrar o comentário, tente novamente.');

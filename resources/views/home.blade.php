@@ -19,10 +19,9 @@
                     <h2 class="card-title">{{$post->title}}</h2>
                     <p class="card-text">{{Str::limit($post->content, 100, '...')}}</p>
                     <p>Author: <strong>{{$post->user->FullName}}</strong></p>
-                    <p>💬 Comentários - <b>{{$post->comments->count()}}</b> </p>
+                    <p>💬 Comentários - <b>{{$post->comments->count()}}</b></p>
                     <a class="btn btn-primary" href="{{route('post', $post->slug)}}">Ler mais →</a>
                     <hr>
-
                 </div>
             @empty
                 <h2>Nenhum post encontrado.😕</h2>
@@ -37,8 +36,9 @@
                 <div class="card-header">Pesquisar</div>
                 <div class="card-body">
                     <form class="input-group" action="{{ route('home') }}" method="get">
-                        <input class="form-control" type="text" placeholder="Busque aqui o seu artigo..." value="{{ request()->input('s') ?? '' }}" name="s"/>
-                        <button class="btn btn-primary"  type="submit">Buscar 🔎</button>
+                        <input class="form-control" type="text" placeholder="Busque aqui o seu artigo..."
+                               value="{{ request()->input('s') ?? '' }}" name="s"/>
+                        <button class="btn btn-primary" type="submit">Buscar 🔎</button>
                     </form>
                 </div>
             </div>
@@ -47,7 +47,12 @@
             <div class="card mb-4">
                 <div class="card-header">Novidade da semana! ⭐</div>
                 <div class="card-body">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </div>
             </div>
 
