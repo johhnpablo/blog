@@ -33,7 +33,7 @@
 ➡️ O blog é atualizado regularmente com novas funcionalidades e correções de bugs. Para atualizar o blog, execute o seguinte comando:  
 
 `composer update`
-### Boa sorte com seu blog!  
+### Boa sorte com seu blog! Pretendo melhorar o blog de acordo com o que aprendi nesses dias. 
  
 ### Adicionais:  
 
